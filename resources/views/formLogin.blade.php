@@ -25,7 +25,7 @@
                     &nbsp;
                     <button type="button" class="btn btn-secondary"
                             onclick="if (confirm('Annuler la saisie et retourner à la liste ? ')) window.location = '{{ url('/listerEmployes') }}';">
-                        Annuler
+                        Annuler1
                     </button>
                 </div>
             </div>
