@@ -21,8 +21,8 @@
                 <td>{{$frais->montantvalide}}</td>
                 <td>{{$frais->nbjustificatifs}}</td>
                 <td>{{$frais->montantvalide}}</td>
-                <td>{{$frais->id_etat}}</td>
-                <td>{{$frais->datemodification}}</td>
+                <td>{{$frais->lib_etat}}</td>
+                <td><button><a href="{{ url("/editerFrais/".$frais->id_frais) }}">Modifier</a></button></td>
             </tr>
         @endforeach
     </table>

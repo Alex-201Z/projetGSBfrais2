@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+use App\Models\Frais;
 use Illuminate\Support\Facades\Session;
 use App\Models\Visiteur;
 
@@ -22,5 +23,6 @@ class VisiteurService
         Session::remove('id_visiteur');
 
     }
+
 
 }
