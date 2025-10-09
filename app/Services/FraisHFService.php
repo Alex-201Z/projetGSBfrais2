@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\FraisHF;
+
 class FraisHFService
 {
     public function getListFraisHF($id)
