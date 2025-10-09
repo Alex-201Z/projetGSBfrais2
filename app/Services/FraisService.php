@@ -59,6 +59,21 @@ class FraisService
         return $frais;
 
     }
+    public function deleteFrais($id)
+    {
+        try{
+            $frais = Frais::query()->find($id);
+            $frais->delete();
+        } catch (QueryException $exception) {
+            if ($exception->getCode() == 23000) {
+                $userMessage = "Impossible de supprimer une fiche avec des frais saisis.";
+            } else {
+                $userMessage = "Erreur de sa suppression dans la base de données";
+            }
+            throw new UserException($userMessage, $exception->getMessage(), $exception->getCode());
+        }
+
+    }
 
 
 }

@@ -63,10 +63,14 @@
                     <button type="button" class="btn btn-default btn-primary"
                             onclick="javascript: window.location = '{{ url('/listerFrais') }}';">
                         <span class="glyphicon glyphicon-remove"></span> Annuler</button>
+                    <a href="{{ url('/supprimerFrais/'.$frais->id_frais) }}"
+                       id="supp" class="btn btn-danger"
+                       onclick="return confirm('Supprime cette fiche de frais ?')">
+                        Supprimer
+                    </a>
                 </div>
             </div>
             <hr>
-
         </div>
     </form>
 
