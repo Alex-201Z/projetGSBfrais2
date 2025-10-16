@@ -21,6 +21,7 @@ class FraisHFController extends Controller
             return view('listFraisHF', compact('fiche', 'montanttotal', 'ficheHF'));
 
         } catch (Exception $exception) {
+            return view("error", compact('exception'));
 
         }
     }

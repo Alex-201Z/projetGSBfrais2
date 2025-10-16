@@ -4,8 +4,10 @@
 <head>
     <title>GSB Frais</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/assets/css/GSB.css"/>
+    <link rel="stylesheet" href="{{ url('/assets/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url('/assets/css/GSB.css') }}"/>
+    <link rel="stylesheet" href="{{ url('/assets/icons/bootstrap-icons.css') }}"/>
+
 
 </head>
 
@@ -22,7 +24,7 @@
             @if(session('id_visiteur'))
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item dropdown">
                         <a class="nav-link" href="{{ url('/listerFrais') }}">Lister</a>
                     </li>
                     <li class="nav-item">

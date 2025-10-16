@@ -25,8 +25,8 @@
                     <input type="number" name="total" class="form-control" min="0" value="{{ $frais->montantvalide}} " disabled >
                 </div>
                 <div class="col-md-12 col-md-offset-3">
-                    <a href="@if(!$frais->id_frais) disabled @endif" class="btn btn-info ">Frais hors forfait</a>
-                    <a href="@if(!$frais->id_frais) disabled @endif" class="btn btn-info ">Frais au forfait</a>
+                    <a href="{{url('/listerFraisHF',$frais->id_frais) }}" class="btn btn-info @if(!$frais->id_frais) disabled @endif">Frais hors forfait</a>
+                    <a href="" class="btn btn-info  @if(!$frais->id_frais) disabled @endif">Frais au forfait</a>
                 </div>
             </div>
             <div class="form-group">
