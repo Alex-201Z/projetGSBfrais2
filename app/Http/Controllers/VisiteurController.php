@@ -44,4 +44,18 @@ class VisiteurController extends Controller
            return view("error", compact('exception'));
        }
    }
+    public function initPasswordAPI(Request $request)
+    {
+        try {
+            $request->validate(['pwd_visiteur' => 'required|min:3']);
+
+            $hash = bcrypt($request->json('pwd_visiteur'));
+
+            Visiteur::query()->update(['pwd_visiteur' => $hash]);
+
+            return response()->json(['status' => 'mots de passe réinitialisés']);
+        } catch (Exception $exception) {
+            return response()->json(['error' => $exception->getMessage()], 500);
+        }
+    }
 }
