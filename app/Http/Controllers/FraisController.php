@@ -92,16 +92,65 @@ class FraisController
             $service = new FraisService();
             $service->deleteFrais($id);
 
-                return redirect(url ('listerFrais'));
+            return redirect(url('listerFrais'));
 
         } catch (Exception $exception) {
             if ($exception->getCode() == 23000) {
                 session::put('erreur', $exception->getUserMessage());
                 return redirect(url('/editerFrais/' . $id));
-            }else {
-            return view("error", compact('exception'));
+            } else {
+                return view("error", compact('exception'));
+            }
         }
+    }
+
+    public function getFrais_API($idFrais)
+    {
+        try {
+            $service = new FraisService();
+            $frais = $service->getFrais($idFrais);
+
+            return json_encode($frais);
+        } catch (Exception $exception) {
+            return response()->json(['error' => $exception->getMessage()], 500);
         }
+
+    }
+
+    public function addFrais_API(Request $request)
+    {
+        try {
+            $frais = new Frais();
+            $frais->id_etat = 2;
+
+            $frais->id_visiteur = session('id_visiteur');
+            $frais->anneemois = $request->json('mois');
+            $frais->nbjustificatifs = $request->json('nbjustif');
+            $frais->montantvalide = $request->json('valide');
+
+            $frais->datemodification = date('Y-m-d');
+
+            $service = new FraisService();
+            $service->saveFrais($frais);
+        } catch (Exception $exception) {
+            return response()->json(['error' => $exception->getMessage()], 500);
+        }
+
+    }
+
+    public function updateFrais_API()
+    {
+
+    }
+
+    public function removeFrais_API()
+    {
+
+    }
+
+    public function listFrais_API()
+    {
+
     }
 
 }
